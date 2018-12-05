@@ -1,0 +1,16 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "My first implementation of a GraphQL server",
+  "main": "index.js",
+  "dependencies": {
+    "graphql-yoga": "^1.16.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": " node src/index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
