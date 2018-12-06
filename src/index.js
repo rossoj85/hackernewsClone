@@ -10,7 +10,7 @@ let links = [{
 let idCount = links.length
 
 // 1 We previously set a const typeDefs here and defined the trypeDefs as a string (see below). It is now its own .graphql file
-// schema.graphqwl
+// schema.graphqwl//
 
 
 // 2
