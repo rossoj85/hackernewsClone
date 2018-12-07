@@ -53,11 +53,6 @@ const resolvers = {
             console.log('links before', links)
             links = links.filter(link=> link.id!==args.id)
             console.log('links after', links)
-            // for(let currentLink of links){
-            //     if(currentLink.id === args.id ){
-
-            //     }
-            // }
             return links
         }
         
