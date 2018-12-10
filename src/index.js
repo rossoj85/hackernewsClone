@@ -1,5 +1,5 @@
 const { GraphQLServer } = require('graphql-yoga')
-
+const { Prisma } = require('prisma-binding')
 
 
 
@@ -28,6 +28,20 @@ const resolvers = {
 const server = new GraphQLServer({
     typeDefs: `src/schema.graphql`,
     resolvers,
+    //attaching the prisma binding context so that the GraphQl has access to the predefined Prisma resolver funcitons. 
+    // this goes into the context arguments that all the funcctions recieve. the contest arg a JavaScript object that 
+    //every resolver in the resolver chain can read from and write to 
+    context: req =>({
+      ...req,
+      db: new Prisma({
+        typeDefs: 'src/generated/prisma.graphql',
+        endpoint: 'https://eu1.prisma.sh/jasson/hackernews-node-prisma/dev',
+        secret: 'mysecret123',
+        //debug set to true :  all requests, made by the Prisma binding instance to the Prisma API will be 
+        //logged to the console
+        debug: true,
+      }),
+    }),
   })
   server.start(() => console.log(`Server is running on http://localhost:4000`))
 
